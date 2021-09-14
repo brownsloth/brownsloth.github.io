@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Tarun Sharma">
+
+
+
+    <meta name="description" content="personal blog of brownsloth as he journeys through the mystical land of ITP">
+
+
+
+<title>Constrained Writing | My ITP Journey</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Aloha, Kemosabe!</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Aloha, Kemosabe!</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Constrained Writing</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Tarun Sharma</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">September 13, 2021&nbsp;&nbsp;22:58:08</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Programming-A-to-Z-Fall-2021/">Programming A to Z - Fall 2021</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="What-constrained-writing"><a href="#What-constrained-writing" class="headerlink" title="What constrained writing?"></a>What constrained writing?</h3><p>In simplest terms, writing bound by rules. The output doesn’t have to be coherent or even make sense (in the original language). There can be a source text which is converted into the final output upon filtering based on the pre-determined rules.</p>
+<h3 id="Why-constrained-writing"><a href="#Why-constrained-writing" class="headerlink" title="Why constrained writing?"></a>Why constrained writing?</h3><p>In techniques where the output actually makes sense, constrained writing can be used to cure writers block. In such cases, I would like to think of constrained writing as alchemy of information. Also, the output can be amusing and fun!</p>
+<h3 id="How-constrained-writing"><a href="#How-constrained-writing" class="headerlink" title="How constrained writing?"></a>How constrained writing?</h3><p>Many people have implemented their own versions of constrained writing. Cutting text, rearranging, moving around letters, only including one vowel, replacing nouns with another noun 7 words ahead in the dictionary (N+7), and what not. I personally have always known fibonacci numbers to be the closest connection between real-life art and mathematics, be it snowflakes or leaf vein patterns. Hence as my submission to the first assignment, I attempted to use fibonacci sequence to dictate which words to pick based on the position they are at within a source text.</p>
+<h3 id="Assignment1-statement"><a href="#Assignment1-statement" class="headerlink" title="Assignment1 statement"></a>Assignment1 statement</h3><p><code>Using a source text of your choosing, manually perform one of the &quot;constrained writing&quot; techniques described above (or one of your own invention!)</code></p>
+<h3 id="My-attempt-‘Constrained-writing-–-Spacing-dictated-by-the-fibonacci-sequence’"><a href="#My-attempt-‘Constrained-writing-–-Spacing-dictated-by-the-fibonacci-sequence’" class="headerlink" title="My attempt: ‘Constrained writing – Spacing dictated by the fibonacci sequence’"></a>My attempt: ‘Constrained writing – Spacing dictated by the fibonacci sequence’</h3><h4 id="Preparing-for-the-assignment"><a href="#Preparing-for-the-assignment" class="headerlink" title="Preparing for the assignment:"></a>Preparing for the assignment:</h4><p>Just thinking about the assignment, I had the following questions:</p>
+<ol>
+<li>Does there have to be a source text or can I generate the final output from my imagination?</li>
+</ol>
+<ul>
+<li>Turns out most of the well known constrained-writing techniques involve filtering out a source text, but it doesn’t necessarily have to be that way.</li>
+</ul>
+<ol start="2">
+<li>How can I get something meaningful to evolve from the mix of rules and rule-less-ness?</li>
+<li>How can I let the text guide me rather than pre-defining hard rules?</li>
+<li>In case of a source text, would constraining each sentence individually make the final output more meaningful?</li>
+<li>How can I make it interactive? Get the user to paste text? Allow randomization?</li>
+<li>Do I need the knowledge of English grammar rules and parts of speech? How would these vary across languages? Can constrained writing be done for a language with ill-defined grammar and no official dictionary?</li>
+<li>Should the constraining technique be revealed to the reader to add to the meaning of the final text?</li>
+</ol>
+<p>I could have literally chosen any technique out of the billion possible and having so many choices causes indecisiveness, which overtime turns into decision fatigue. So instead, I chose to let my gut dictate the constraints and I went with the fibonacci sequence based filtering.</p>
+<p>I needed to know the basics of html and p5js which the following resources cover nicely:</p>
+<ol>
+<li>First three videos of <a target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLRqwX-V7Uu6bI1SlcCRfLH79HZrFAtBvX">this</a> playlist.</li>
+<li><a target="_blank" rel="noopener" href="https://p5js.org/reference/">p5js reference</a></li>
+</ol>
+<h4 id="This-is-my-initial-code-framework"><a href="#This-is-my-initial-code-framework" class="headerlink" title="This is my initial code framework:"></a>This is my initial code framework:</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">var textInput, submitButton, resultPara, fileInput;</span><br><span class="line"></span><br><span class="line">// Callback function to handle uploaded text file</span><br><span class="line">function handleInputFile(file)&#123;</span><br><span class="line">  //file contains the uploaded file object</span><br><span class="line">  if(file.type == &#x27;text&#x27;)&#123;</span><br><span class="line">    //read the text</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    //ask the user to only use text files</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function setup() &#123;</span><br><span class="line">  //Elements I need:</span><br><span class="line">  //  1. a text box</span><br><span class="line">  //  2. a submit button</span><br><span class="line">  //  3. a result display div</span><br><span class="line">  //  4. a file popup</span><br><span class="line">  //functionalities:</span><br><span class="line">  //  1. copy-paste text to the text box</span><br><span class="line">  //  2. on clicking upload, open a text file accepting popup</span><br><span class="line">  //  3. on finishing upload, copy the text to the textbox</span><br><span class="line">  //  4. on submit, present the finished text on the display div</span><br><span class="line">  //optional functionalities:</span><br><span class="line">  //  - filter for only text files</span><br><span class="line">  //  - slider/radio buttons</span><br><span class="line">  //  - color/audio</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function draw() &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="This-is-what-the-final-code-looks-like"><a href="#This-is-what-the-final-code-looks-like" class="headerlink" title="This is what the final code looks like:"></a>This is what the final code looks like:</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">var textInput, submitButton, resultPara, originalPara, fileInput;</span><br><span class="line"></span><br><span class="line">var fibonacci_prev, fibonacci_curr, temp;</span><br><span class="line"></span><br><span class="line">//Reset fibonacci variables</span><br><span class="line">function resetFibo()&#123;</span><br><span class="line">  fibonacci_prev = 1</span><br><span class="line">  fibonacci_curr = 1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Callback function to handle uploaded text file</span><br><span class="line">function handleInputFile(file)&#123;</span><br><span class="line">  //file contains the uploaded file object</span><br><span class="line">  if(file.type == &#x27;text&#x27;)&#123;</span><br><span class="line">    textInput.value(file.data)</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    alert(&#x27;Please upload a text file!&#x27;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//To filter words based on index</span><br><span class="line">function filterWordsByIndex(index)&#123;</span><br><span class="line">  //one-based indexing</span><br><span class="line">  if(index + 1 == fibonacci_curr)&#123;</span><br><span class="line">    //change fibo</span><br><span class="line">    temp = fibonacci_prev</span><br><span class="line">    fibonacci_prev = fibonacci_curr</span><br><span class="line">    fibonacci_curr = temp + fibonacci_prev</span><br><span class="line">    return true</span><br><span class="line">  &#125;</span><br><span class="line">  return false</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//Callback function to display the constrained text from the input text</span><br><span class="line">function displayConstrainedText()&#123;</span><br><span class="line">  resetFibo()</span><br><span class="line">  //perform constraining operations</span><br><span class="line">  constrainedText = &#x27;&#x27;</span><br><span class="line">  // 1. remove any character which isnt an alphabet</span><br><span class="line">  textWords = textInput.value().replaceAll(&#x27;,&#x27;,&#x27; &#x27;).replaceAll(&#x27;.&#x27;,&#x27; &#x27;).replaceAll(&#x27;:&#x27;,&#x27; &#x27;).replaceAll(&#x27;&quot;&#x27;,&#x27; &#x27;).replaceAll(&#x27;-&#x27;,&#x27; &#x27;)</span><br><span class="line">  textWordsList = textWords.split(&#x27; &#x27;)</span><br><span class="line">  // 2. apply</span><br><span class="line">  textWordsList.forEach((element, index) =&gt; &#123;</span><br><span class="line">    if(filterWordsByIndex(index))&#123;</span><br><span class="line">      constrainedText += element</span><br><span class="line">      constrainedText += &#x27; &#x27;&#125;</span><br><span class="line">    else&#123;</span><br><span class="line">      textWordsList[index] = &quot;#&quot;.repeat(element.length)&#125;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  originalWithHashedOutWords = textWordsList.join(&#x27; &#x27;)</span><br><span class="line">  resultPara.html(constrainedText)</span><br><span class="line">  originalPara.html(originalWithHashedOutWords)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function setup() &#123;</span><br><span class="line">  //createCanvas(400, 400);</span><br><span class="line">  noCanvas();</span><br><span class="line">  resetFibo()</span><br><span class="line">  //Elements I need:</span><br><span class="line">  //  1. a text box</span><br><span class="line">  textInput = createInput(&quot;Text goes here&quot;);</span><br><span class="line">  //  2. a upload/submit button</span><br><span class="line">  submitButton = createButton(&#x27;Submit&#x27;);</span><br><span class="line">  //  3. a result display div</span><br><span class="line">  //  4. a file popup</span><br><span class="line">  fileInput = createFileInput(handleInputFile);</span><br><span class="line">  fileInput.position(0,50)</span><br><span class="line">  resultPara = createP(&#x27;Constrained text is displayed here!&#x27;);</span><br><span class="line">  resultPara.position(0,100)</span><br><span class="line">  originalPara = createP(&#x27;Original text with hashed out words is displayed here!&#x27;);</span><br><span class="line">  originalPara.position(0,200)</span><br><span class="line">  //functionalities:</span><br><span class="line">  //  1. copy-paste text to the text box</span><br><span class="line">  //  2. on clicking upload, open a text file accepting popup</span><br><span class="line">  //  3. on finishing upload, copy the text to the textbox</span><br><span class="line">  //  4. on submit, present the finished text on the display div</span><br><span class="line">  submitButton.mousePressed(displayConstrainedText)</span><br><span class="line">  //optional functionalities:</span><br><span class="line">  //  - filter for only text files</span><br><span class="line">  //  - slider/radio buttons</span><br><span class="line">  //  - color/audio</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function draw() &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Things-I-learnt-along-the-way"><a href="#Things-I-learnt-along-the-way" class="headerlink" title="Things I learnt along the way:"></a>Things I learnt along the way:</h4><ol>
+<li><code>console.log(&lt;variable_name&gt;)</code> is a handy way to debug your p5js (or js in general) code.</li>
+<li>For an <code>&lt;input&gt;</code> tag, the <code>html()</code> method is useless. For a <code>&lt;p&gt;</code> tag on the other hand, it can be used to get/set the inner text.</li>
+<li>Tag attributes and DOM Node properties are two different things. Tag attributes can be used to attach a default value to a tag, but its corresponding DOM will have a corresponding property which is what stores live value. Use <code>&lt;object&gt;.value(&lt;property_name&gt;)</code> to access DOM node properties.</li>
+<li>The <code>split()</code> string method splits a sentences at spaces (and into words) only if you provide <code>&#39; &#39;</code> as an additional argument.</li>
+<li>If a callback method is tinkering with global variables, make sure that those variables are reset before the callback gets invoked again.</li>
+<li>The <code>replace()</code> string method only replaces the first occurrence of a token. Use <code>replaceAll()</code> to replace all occurences.</li>
+<li>Even if you don’t include a <code>createCanvas()</code> line, p5 creates a canvas by default. Use <code>noCanvas()</code> in the setup to avoid that.</li>
+</ol>
+<h4 id="Open-Questions"><a href="#Open-Questions" class="headerlink" title="Open Questions:"></a>Open Questions:</h4><ol>
+<li>Is <code>p5.Element</code> a subclass of Html DOM <code>Element</code>? If so, why is the <code>setAttribute()</code> method not available for p5 objects?</li>
+</ol>
+<h4 id="Improvements-that-can-be-done-to-this"><a href="#Improvements-that-can-be-done-to-this" class="headerlink" title="Improvements that can be done to this:"></a>Improvements that can be done to this:</h4><ol>
+<li>Better relative positioning of elements.</li>
+<li>Add horizontal/vertical slider to input text area and make it readable.</li>
+<li>Add some pizzaz (audio/color).</li>
+</ol>
+<h4 id="Takeaways"><a href="#Takeaways" class="headerlink" title="Takeaways:"></a>Takeaways:</h4><ol>
+<li>Ask yourself, What’s the bare minimum that needs to be done to get something to work? before thinking about the final form.</li>
+<li>p5 reference is not detailed.</li>
+<li>p5 web editor could use auto-suggestion plugins or something.</li>
+<li>Need to find a way to debug p5 scripts in real time.</li>
+<li>Use constrained and iterative thinking to go about solving any problem!</li>
+</ol>
+<h3 id="Demo"><a href="#Demo" class="headerlink" title="Demo:"></a><a name="Demo"></a>Demo:</h3><iframe style="width: 640px; height: 360px; overflow: hidden;"  scrolling="no" frameborder="0" src="https://preview.p5js.org/ts4366/embed/HR9_Oumg8"></iframe>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Tarun Sharma</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://brownsloth.github.io/2021/09/13/constrained-writing/">https://brownsloth.github.io/2021/09/13/constrained-writing/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY<strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2021/09/05/murphys-law-poetry/">Murphy's Law</a>
+            
+        </section>
+
+        
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Tarun Sharma | Font credits: <a href="https://opendyslexic.org/" target="_blank">OpenDyslexic</a> | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
