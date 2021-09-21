@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Tarun Sharma">
+
+
+
+    <meta name="description" content="personal blog of brownsloth as he journeys through the mystical land of ITP">
+
+
+
+<title>regular-expressions | My ITP Journey</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Aloha, Kemosabe!</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Aloha, Kemosabe!</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">regular-expressions</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Tarun Sharma</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">September 19, 2021&nbsp;&nbsp;0:11:14</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Programming-A-to-Z-Fall-2021/">Programming A to Z - Fall 2021</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="What-Regular-expressions"><a href="#What-Regular-expressions" class="headerlink" title="What Regular expressions:"></a>What Regular expressions:</h3><p>Regular expressions are ways to describe a piece of text(sequence of characters), in a way that a regular expression engine could understand.</p>
+<h3 id="Existing-Possible-use-cases-of-regular-expressions"><a href="#Existing-Possible-use-cases-of-regular-expressions" class="headerlink" title="Existing/Possible use cases of regular expressions:"></a>Existing/Possible use cases of regular expressions:</h3><ol>
+<li>Finding information by specifying minimal text: For example in the ‘Find’/‘Find all’/‘Replace’/‘Replace all’ functionalities in text editors and in formulation of search queries in text-based search engines.</li>
+</ol>
+<ul>
+<li>Possible use cases:<ul>
+<li>I have known that negative thoughts detrimental for mental health follow a template. Can that template be expressed as a regex? Could that be used to detect negative thoughts in real time and help rewire thinking patterns?</li>
+<li>If we convert music written by composers like Beethoven into a seuqneece of chords, can we express that sequence as a composer-specific regex or at least find recurring patterns?</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>Generating information from templates:</li>
+</ol>
+<ul>
+<li>Possible use cases: Create a poem/haiku/songs/rap/puzzle/motivational-quotes from a regex template?</li>
+</ul>
+<ol start="3">
+<li>Converting across text-based file types: To parse information and convert across mutliple file types, like, converting an age-old Shakespeare sonnet into an XML file for better processing.</li>
+</ol>
+<ul>
+<li>Possible use case: Generate a good pdf-parser, which is hard to find!</li>
+</ul>
+<ol start="4">
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Approximate_string_matching">Approximate string matching</a>:</li>
+</ol>
+<ul>
+<li>For problems like spell checking, matching neucleotide sequences and spam filtering.</li>
+</ul>
+<ol start="5">
+<li><a target="_blank" rel="noopener" href="http://mitiq.mit.edu/ICIQ/Documents/IQ%20Conference%202002/Papers/PracticalRegularExpressionMiningnItsInfoQualityApp.pdf">Determining data quality</a></li>
+<li>Classifying text based on presence of matches with a regex:</li>
+</ol>
+<ul>
+<li>Clinical data classification using <a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/260431619_Learning_regular_expressions_for_clinical_text_classification">machine-generated regexes</a> and <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/8864974">constructive heuristic approach</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2102.09507">Quick classification of social media posts as COVID-19 or not</a></li>
+<li><a target="_blank" rel="noopener" href="https://new.ingwb.com/binaries/content/assets/insights/themes/empowering-with-advanced-analytics/internship-theses-at-wbaa/evolving-regular-expression-features-for-text-classification-with-genetic-programming.pdf">Self-evolving regex for text classification</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/research/wp-content/uploads/2014/09/is2014.AlexMarin.pdf">Evolving classification regex with help of unlabeled data</a></li>
+<li>Possible Use cases: Tag a conversation as ‘whining’ based on its content?</li>
+</ul>
+<ol start="7">
+<li>Checking against standard data formats: SSN/Credit card/password format checkers.</li>
+<li><a target="_blank" rel="noopener" href="https://aclanthology.org/P18-1194.pdf">Augmenting neural networks</a></li>
+</ol>
+<h3 id="Assignment2-statement"><a href="#Assignment2-statement" class="headerlink" title="Assignment2 statement"></a>Assignment2 statement</h3><p><code>Design an exercise around regular expressions.</code></p>
+<h3 id="My-attempt-‘Poetry-Shuffler-–-Causing-chaos-with-poetry’"><a href="#My-attempt-‘Poetry-Shuffler-–-Causing-chaos-with-poetry’" class="headerlink" title="My attempt: ‘Poetry Shuffler – Causing chaos with poetry’"></a>My attempt: ‘Poetry Shuffler – Causing chaos with poetry’</h3><h4 id="This-is-what-the-final-code-looks-like"><a href="#This-is-what-the-final-code-looks-like" class="headerlink" title="This is what the final code looks like:"></a>This is what the final code looks like:</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line">poem=&quot;\</span><br><span class="line">I am in a course,&lt;br&gt;\</span><br><span class="line">called programming A to Z,&lt;br&gt;\</span><br><span class="line">\(uptil now\) I have no remorse,&lt;br&gt;\</span><br><span class="line">it\&#x27;s been all fun and glee,&lt;br&gt;\</span><br><span class="line">creativity it does endorse,&lt;br&gt;\</span><br><span class="line">to that i shall agree,&lt;br&gt;\</span><br><span class="line">and when the time comes for divorce,&lt;br&gt;\</span><br><span class="line">i\&#x27;d have hopefully become artsy,&lt;br&gt;\</span><br><span class="line">&quot;</span><br><span class="line">poem_element = null</span><br><span class="line">selected_words_force = []</span><br><span class="line">selected_words_bee = []</span><br><span class="line">selected_words_all = []</span><br><span class="line">repl_index = -1</span><br><span class="line">rhyming_words_force = null</span><br><span class="line">rhyming_words_bee = null</span><br><span class="line"></span><br><span class="line">function reset_word_arrays()&#123;</span><br><span class="line">  selected_words_force = []</span><br><span class="line">  selected_words_bee = []</span><br><span class="line">  selected_words_all = []</span><br><span class="line">  repl_index = -1</span><br><span class="line">  let spans = selectAll(&#x27;span&#x27;)</span><br><span class="line">  for(var i=0;i&lt;spans.length;i++)&#123;</span><br><span class="line">    spans[i].style(&#x27;background-color&#x27;,&#x27;white&#x27;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function replacerFun(match,sentence)&#123;</span><br><span class="line">  //TODO: how to replace dynamically</span><br><span class="line">  //on one one based on the group index</span><br><span class="line">  repl_index += 1;</span><br><span class="line">  return sentence + &#x27; &#x27; + selected_words_all[repl_index] + &#x27;,&lt;br&gt;&#x27;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function showOriginal()&#123;</span><br><span class="line">  reset_word_arrays()</span><br><span class="line">  poem_element.html(poem)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function causeChaos()&#123;</span><br><span class="line">  reset_word_arrays()</span><br><span class="line">  for(var i=0;i&lt;4;i++)&#123;</span><br><span class="line">  //Math.random() will never be 1</span><br><span class="line">    selected_words_all.push(rhyming_words_force[Math.floor(Math.random()*rhyming_words_force.length)]);  selected_words_all.push(rhyming_words_bee[Math.floor(Math.random()*rhyming_words_bee.length)]);</span><br><span class="line">  &#125;</span><br><span class="line">  showPoem()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function showPoem()&#123;</span><br><span class="line">  poem_copy = poem</span><br><span class="line">  //poem_copy.replace()</span><br><span class="line">  if(selected_words_force.length == 4 &amp;&amp; selected_words_bee.length == 4)&#123;</span><br><span class="line">    for(const i in selected_words_force)&#123;</span><br><span class="line">      selected_words_all.push(selected_words_force[i])</span><br><span class="line">      selected_words_all.push(selected_words_bee[i])</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; else if (!(selected_words_all.length == 8))&#123;</span><br><span class="line">    alert(&#x27;Please select words first!&#x27;)</span><br><span class="line">    return</span><br><span class="line">  &#125;</span><br><span class="line">  regex = /([a-zA-Z ]*)[ ]([a-zA-Z]*),&lt;br&gt;/gi</span><br><span class="line">  poem_copy = poem_copy.replaceAll(regex, replacerFun)</span><br><span class="line">  poem_element.html(poem_copy)</span><br><span class="line">  reset_word_arrays();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function selectRhymingWord_force()&#123;</span><br><span class="line">  if(selected_words_force.length == 4) return</span><br><span class="line">  this.style(&#x27;background-color&#x27;,&#x27;yellow&#x27;)</span><br><span class="line">  //using this.html() since .value() is undefined</span><br><span class="line">  selected_words_force.push(this.html())</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function selectRhymingWord_bee()&#123;</span><br><span class="line">  if(selected_words_bee.length == 4) return</span><br><span class="line">  this.style(&#x27;background-color&#x27;,&#x27;green&#x27;)</span><br><span class="line">  selected_words_bee.push(this.html())</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function setup() &#123;</span><br><span class="line">  noCanvas();</span><br><span class="line">  createP(&#x27;Pick four words that rhyme with force:&#x27;)</span><br><span class="line">  //rhymes with a limit always returns the same words</span><br><span class="line">  //so get all first, and then use random() js method for arrays</span><br><span class="line">   rhyming_words_force = RiTa.rhymes(&#x27;force&#x27;,&#123;limit: Number.MAX_SAFE_INTEGER&#125;)</span><br><span class="line">  for(const i in rhyming_words_force)&#123;</span><br><span class="line">    temp = createSpan(rhyming_words_force[i])</span><br><span class="line">    temp.mousePressed(selectRhymingWord_force)</span><br><span class="line">    if( i != rhyming_words_force.length - 1) createSpan(&#x27; , &#x27;)</span><br><span class="line">    else createSpan(&#x27; .&#x27;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  createP(&#x27;Pick four words that rhyme with bee:&#x27;)</span><br><span class="line"></span><br><span class="line"> rhyming_words_bee = RiTa.rhymes(&#x27;bee&#x27;,&#123;limit: Number.MAX_SAFE_INTEGER&#125;)</span><br><span class="line">  for(const i in rhyming_words_bee)&#123;</span><br><span class="line">    temp = createSpan(rhyming_words_bee[i])</span><br><span class="line">    temp.mousePressed(selectRhymingWord_bee)</span><br><span class="line">    if( i != rhyming_words_bee.length - 1) createSpan(&#x27; , &#x27;)</span><br><span class="line">    else createSpan(&#x27; .&#x27;)</span><br><span class="line">  &#125;</span><br><span class="line">  createSpan(&#x27;&lt;/br&gt;&#x27;)</span><br><span class="line">  b = createButton(&#x27;Write me a poem&#x27;)</span><br><span class="line">  b.mousePressed(showPoem)</span><br><span class="line">  createSpan(&#x27;&lt;br&gt;OR&lt;br&gt;&#x27;)</span><br><span class="line">  r = createButton(&#x27;Cause Chaos&#x27;)</span><br><span class="line">  r.mousePressed(causeChaos)</span><br><span class="line">  createSpan(&#x27;&lt;br&gt;OR&lt;br&gt;&#x27;)</span><br><span class="line">  o = createButton(&#x27;Show the original&#x27;)</span><br><span class="line">  o.mousePressed(showOriginal)</span><br><span class="line">  poem_element = createP(&#x27;&#x27;)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function draw() &#123;</span><br><span class="line">  background(220);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Things-I-learnt-along-the-way"><a href="#Things-I-learnt-along-the-way" class="headerlink" title="Things I learnt along the way:"></a>Things I learnt along the way:</h4><ol>
+<li>I can write a poem anywhere and anytime.</li>
+<li>p5js <code>selectAll</code> method can be used to pick all p5Elements of a particular type.</li>
+<li>One way to reset the background-color of an element over a white canvas, is to set it to white.</li>
+<li>Any global arrays that are being modified by a method (which could be called multiple times), need to be reset once that method is finished working, and in some cases, before it even starts.</li>
+<li>Random number picked using <code>Math.random()</code> would never be <code>1</code>. Hence <code>&lt;length of an array&gt;*Math.random()</code> is the correct qay to randomly pick an index from an array.</li>
+<li>When using <code>replaceAll</code> method with a regex, need to append <code>gi</code> at the end of the regex, or you see the following error: <code>TypeError: String.prototype.replaceAll called with a non-global RegExp argument</code>.</li>
+</ol>
+<h4 id="Open-Questions"><a href="#Open-Questions" class="headerlink" title="Open Questions:"></a>Open Questions:</h4><ol>
+<li>How does RiTa find rhyming words? Why does it not consider pores to rhyme with force?</li>
+</ol>
+<h4 id="Improvements-that-can-be-done-to-this"><a href="#Improvements-that-can-be-done-to-this" class="headerlink" title="Improvements that can be done to this:"></a>Improvements that can be done to this:</h4><ol>
+<li>As always, the design. The green is really pricking my eyeballs. And the whole layout seems lifeless.</li>
+<li>This includes a poem template on which few modifications are made. Can we possibly generate an entirely new poem on the fly?</li>
+</ol>
+<h4 id="Takeaways"><a href="#Takeaways" class="headerlink" title="Takeaways:"></a>Takeaways:</h4><ul>
+<li>The only limit to creativity is your imagination .. and your mood schedule.</li>
+</ul>
+<h3 id="Demo"><a href="#Demo" class="headerlink" title="Demo:"></a><a name="Demo"></a>Demo:</h3><iframe style="width: 640px; height: 800px; overflow: hidden;" frameborder="0" src="https://preview.p5js.org/ts4366/embed/Nlf4IL4YH"></iframe>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Tarun Sharma</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://brownsloth.github.io/2021/09/19/regular-expressions/">https://brownsloth.github.io/2021/09/19/regular-expressions/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY<strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2021/09/14/pcomp-lab1/">pcomp-lab1</a>
+            
+        </section>
+
+        
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Tarun Sharma | Font credits: <a href="https://opendyslexic.org/" target="_blank">OpenDyslexic</a> | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
