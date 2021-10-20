@@ -15,7 +15,7 @@
 
 
 
-<title>Word Bubbles | My ITP Journey</title>
+<title>Mashup Discord Bot | My ITP Journey</title>
 
 
 
@@ -195,7 +195,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Word Bubbles</h1>
+            <h1 class="post-title">Mashup Discord Bot</h1>
             
                 <div class="post-meta">
                     
@@ -204,7 +204,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">October 5, 2021&nbsp;&nbsp;12:51:34</a>
+                        Date: <a href="#">October 20, 2021&nbsp;&nbsp;1:56:14</a>
                         </span>
                     
                     
@@ -220,14 +220,20 @@
         </header>
 
         <div class="post-content">
-            <p>For this assignment, I wanted to make word bubbles whose size depended upon their count in a text. I ended up chosing the book ‘Science of Being Well’ since I want to explore the relation between field of wellness and text, and picked the text file from Project Gutengberg.</p>
-<h2 id="What-I-learnt-along-the-way"><a href="#What-I-learnt-along-the-way" class="headerlink" title="What I learnt along the way:"></a>What I learnt along the way:</h2><ol>
-<li><code>circle</code> is a nice command to draw a circle, but it gets really tough when you want to move that circle around or detect its collision/overlap with some other circle. Also there is no DOM element for the created circle, so there is no way to attach like a <code>mouseOver()</code> event listener to it.</li>
-<li>Need to include <code>background()</code> at the beginning of <code>draw()</code> to make sure previous frames are cleared out</li>
-<li><code>setTimeout()</code> didn’t function well consistently. Similarly <code>mouseOver()</code> doesn’t catch all the mouse movements.</li>
+            <p>For the mid-term assignment, I wanted to make something related to music. I have always been fascinated by how mashups can just put songs together and create something more than the sum of their parts. Which is also in line with the principles of constrained poetry.</p>
+<p>So I made a discord bot which you can summon like this: </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/mashup-make artist1:eminem artist2:the weekend number_of_lines:6</span><br></pre></td></tr></table></figure>
+
+<p>And the result looks something like this:</p>
+<p><img src="/images/mashup_bot.png"></p>
+<p>Which is basically random lyrics from random songs of the two artists, put together.</p>
+<h2 id="Some-things-I-encountered-along-the-way"><a href="#Some-things-I-encountered-along-the-way" class="headerlink" title="Some things I encountered along the way:"></a>Some things I encountered along the way:</h2><ol>
+<li>The bot mashes up lyrics and the end-product might contain nsfw words which might not be suitable for all audience. So I decided to use an nsfw filter, and there’s a customizable npm package called <code>bad-words</code>.</li>
+<li>How I can just copy paste 🐦 into text</li>
+<li>When including a piece of text into a url as a query parameter, one needs to replace the newlines by <code>%0A</code> and spaces by <code>%20</code>, or else the url would be ‘malformed’</li>
+<li>If your discord bot is taking too much time, you need to use <code>deferReply</code> to let it work its magic because by default discord expects a response in 3 seconds.</li>
+<li>For some reason, <code>genius.com</code> has different markups for lyrics pages, which makes it difficult to parse using a single template. What’s stranger is it has different markups for the same page for logged-in versus incognito users.</li>
 </ol>
-<h2 id="Here’s-how-it-turned-out"><a href="#Here’s-how-it-turned-out" class="headerlink" title="Here’s how it turned out:"></a>Here’s how it turned out:</h2><p>Observe how the bubbles grow in size and start to move faster as the text is parsed and the counts of the words present in it are incremented accordingly. Also, you can hover over any bubble so it turns yellow and all the other bubbles stop momentarily so you can clearly see the text.</p>
-<iframe style="width: 640px; height: 800px; overflow: hidden;" frameborder="0" src="https://preview.p5js.org/ts4366/embed/ZnKK_oZZD"></iframe>
 
         </div>
 
@@ -242,7 +248,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://brownsloth.github.io/2021/10/05/word-bubbles/">https://brownsloth.github.io/2021/10/05/word-bubbles/</a></span>
+                        <span><a href="https://brownsloth.github.io/2021/10/20/rap-mashup-bot/">https://brownsloth.github.io/2021/10/20/rap-mashup-bot/</a></span>
                     </p>
                 
                 
@@ -275,10 +281,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2021/10/12/twitter-bot/">twitter-bot</a>
             
-            
-            <a class="next" rel="next" href="/2021/10/02/lemon-stand-assets/">lemon-stand-assets</a>
+            <a class="next" rel="next" href="/2021/10/12/twitter-bot/">twitter-bot</a>
             
         </section>
 

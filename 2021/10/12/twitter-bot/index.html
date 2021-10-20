@@ -15,7 +15,7 @@
 
 
 
-<title>Word Bubbles | My ITP Journey</title>
+<title>twitter-bot | My ITP Journey</title>
 
 
 
@@ -129,73 +129,11 @@
                 <div class="container">
     
     
-        <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
-    </div>
-</div>
-
-<script>
-    document.ready(
-        function () {
-            tocbot.init({
-                tocSelector: '.tocbot-list',
-                contentSelector: '.post-content',
-                headingSelector: 'h1, h2, h3, h4, h5',
-                collapseDepth: 1,
-                orderedList: false,
-                scrollSmooth: true,
-            })
-        }
-    )
-
-    function expand_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 6,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "collapse_toc()");
-        b.innerHTML = "Collapse all"
-    }
-
-    function collapse_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 1,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "expand_toc()");
-        b.innerHTML = "Expand all"
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-</script>
-    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Word Bubbles</h1>
+            <h1 class="post-title">twitter-bot</h1>
             
                 <div class="post-meta">
                     
@@ -204,7 +142,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">October 5, 2021&nbsp;&nbsp;12:51:34</a>
+                        Date: <a href="#">October 12, 2021&nbsp;&nbsp;12:45:24</a>
                         </span>
                     
                     
@@ -220,14 +158,14 @@
         </header>
 
         <div class="post-content">
-            <p>For this assignment, I wanted to make word bubbles whose size depended upon their count in a text. I ended up chosing the book ‘Science of Being Well’ since I want to explore the relation between field of wellness and text, and picked the text file from Project Gutengberg.</p>
-<h2 id="What-I-learnt-along-the-way"><a href="#What-I-learnt-along-the-way" class="headerlink" title="What I learnt along the way:"></a>What I learnt along the way:</h2><ol>
-<li><code>circle</code> is a nice command to draw a circle, but it gets really tough when you want to move that circle around or detect its collision/overlap with some other circle. Also there is no DOM element for the created circle, so there is no way to attach like a <code>mouseOver()</code> event listener to it.</li>
-<li>Need to include <code>background()</code> at the beginning of <code>draw()</code> to make sure previous frames are cleared out</li>
-<li><code>setTimeout()</code> didn’t function well consistently. Similarly <code>mouseOver()</code> doesn’t catch all the mouse movements.</li>
-</ol>
-<h2 id="Here’s-how-it-turned-out"><a href="#Here’s-how-it-turned-out" class="headerlink" title="Here’s how it turned out:"></a>Here’s how it turned out:</h2><p>Observe how the bubbles grow in size and start to move faster as the text is parsed and the counts of the words present in it are incremented accordingly. Also, you can hover over any bubble so it turns yellow and all the other bubbles stop momentarily so you can clearly see the text.</p>
-<iframe style="width: 640px; height: 800px; overflow: hidden;" frameborder="0" src="https://preview.p5js.org/ts4366/embed/ZnKK_oZZD"></iframe>
+            <p>For the past few days, I have been trying to get a hang of Google’s Dialogflow as well as the Riverscript library. My aim is to develop one twitter bot each using these libraries, so I get to compare the pros and cons. During class last week, I made a twitter bot modelled on Michael Scott’s character from the Office, which tweeted a random quote from Michael everytime I ran the nodejs script. I found a list of all the quotes in a text file online and directly used that as source after verifying a few lines myself.<br>It was fun, but I want to host the script online so that I don’t have to run the script myself. Also, I would like it to pick random users to talk to rather than throwing out quotes into the vaccum.</p>
+<p>As for a twitter bot for the class project, I have a few ideas in mind:</p>
+<ul>
+<li>An IWantToLearn bot, which could be summoned by users who want to learn something and it would respond with ways they could go about it. One source the bot could refer to is the <a target="_blank" rel="noopener" href="https://www.reddit.com/r/IWantToLearn/">IWTL subreddit</a>. Moreover, the bot will let you know each day what the people you are following are trying to learn, if you enable this feature. I already found a <a target="_blank" rel="noopener" href="https://github.com/not-an-aardvark/snoowrap">javascript wrapper for the reddit api</a> and I am looking forward to experimenting with it. </li>
+<li>A ChangeMyMood bot, which when summoned shares a media (image/gif/video/audio) that would try to change your mood and bring it back to normal. As for the IWTL bot, this one can also summarize the moods of your followers daily, if you enable that feature.</li>
+<li>A linker bot, which maintains a minimum-separation graph of all the people that have summoned him in the past hour, and would let you know the path through which you might be related to those other twitter handles.</li>
+</ul>
+<p>My initial impressions: DialogFlow seems a lot of work if the bot is required to do simple things like say hello to its summoners. It’s also time consuming since its a third party service which needs to be invoked every time. However, DialogFlow exposes a way to programatically set the intents which I couldnt find in RiverScript where you have to manually create all the <code>rives</code>.</p>
 
         </div>
 
@@ -242,7 +180,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://brownsloth.github.io/2021/10/05/word-bubbles/">https://brownsloth.github.io/2021/10/05/word-bubbles/</a></span>
+                        <span><a href="https://brownsloth.github.io/2021/10/12/twitter-bot/">https://brownsloth.github.io/2021/10/12/twitter-bot/</a></span>
                     </p>
                 
                 
@@ -275,10 +213,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2021/10/12/twitter-bot/">twitter-bot</a>
+                <a class="prev" rel="prev" href="/2021/10/20/rap-mashup-bot/">Mashup Discord Bot</a>
             
             
-            <a class="next" rel="next" href="/2021/10/02/lemon-stand-assets/">lemon-stand-assets</a>
+            <a class="next" rel="next" href="/2021/10/05/word-bubbles/">Word Bubbles</a>
             
         </section>
 
